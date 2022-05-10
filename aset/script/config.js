@@ -5,8 +5,7 @@ tailwind.config = {
                 primary: '#FFC600',
             },
             fontFamily: {
-                'poppins': ['Poppins', 'sans-serif'],
-                'halant': ['Halant', 'serif']
+                'poppins': ['Poppins', 'sans-serif']
             },
         }
     }
