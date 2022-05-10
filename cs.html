@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Customer Service </title>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400
+;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--primary-color-title: #000;
+			--primary-color-content: #868d8d;
+			--secondary-color-content: #fff;
+			--tersier-color-content: #0a8090;
+			--primarybutton:
+				#00bcd4;
+			--background-menu: #f4f4f6;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: "Source Sans Pro", sans-serif;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.container {
+			height: 760px;
+			width: 375px;
+			margin: 20px;
+			padding: 3vh 0;
+			-webkit-box-shadow: 5px 2px 8px 2px var(--primary-colorcontent);
+
+			box-shadow:
+				5px 2px 8px 2px var(--primary-color-content);
+		}
+
+		.container .contents .navbar #hamb-nav {
+			margin: 4vh;
+		}
+
+		.container .contents .navbar #prof-pic {
+			margin: 4vh;
+			float: right;
+		}
+
+		.container .contents .title h1 {
+			font-weight: bold;
+			text-align: center;
+			paddingleft: 4vw;
+		}
+
+		.container .contents img {
+			margin: 1.5vh auto;
+			margin-left: 4vw;
+		}
+
+		.container .contents hr {
+			border-top: transparent;
+			border-bottom: 5px solid var(--primary-button);
+			width: 120px;
+			margin: 2vh auto;
+		}
+
+		.container .contents .contents .card {
+			background-color: rgba(196, 196, 196, 0.15);
+			border-radius: 20px;
+			height: 60px;
+			width: 316px;
+			margin: 2.5vh auto;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+		}
+
+
+
+		.container .contents .contents .card img {
+			height: 50px;
+			margin: 0.5vh 0.5vw;
+		}
+
+
+
+		.container .contents .contents .card h1 {
+			font-size: 20px;
+			line-height: 60px;
+			padding-right: 1vw;
+		}
+
+
+
+		.container .contents .contents .card:hover {
+			background-color:rgba(94, 94, 94, 0.15);
+		}
+
+
+
+		.container .contents .menu {
+
+			margin-top: 25vh;
+
+			background-color: var(-background-menu);
+			height: 55px;
+		}
+
+
+
+		.container .contents .menu a img {
+			margin: 2vh 4vh;
+		}
+
+		/*# sourceMappingURL=Halaman_Customer_Service.css.map*/
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="contents">
+			<div class="navbar">
+				<a href="">
+					<img src="../assets/navbar.png" alt="" id="hamb-nav">
+
+				</a>
+				<a href="">
+					<img src="../assets/profile.png" alt="" id="prof-pic">
+				</a>
+			</div>
+			<div class="title">
+				<h1>Customer Service</h1>
+			</div>
+			<hr>
+			<img src="../assets/customerService-pic.png" alt="">
+			<div class="contents">
+			<div class="subtitle">
+				<h2>Kami siap melayani anda!</h2>
+			</div>
+				<div id="cards">
+					<a href="">
+						<div class="card">
+							<h1> METODE </h1>
+						</div>
+					</a>
+					<a href="">
+						<div class="card">
+							<img src="../assets/icon-phone.png" alt="">
+							<h1> Panggilan Suara </h1>
+						</div>
+					</a>
+					<a href="">
+						<div class="card">
+							<img src="../assets/icon-email.png" alt="">
+							<h1> Email </h1>
+						</div>
+					</a>
+					<a href="">
+						<div class="card">
+							<img src="../assets/icon-livechat.png" alt="">
+							<h1> Live Chat </h1>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="menu">
+				<a href=""> <img src="../assets/icon-home.png" alt=""> </a>
+				<a href=""> <img src="../assets/icon-notification.png" alt=""> </a>
+				<a href=""> <img src="../assets/icon-bookmarked-click.png" alt="">
+				</a>
+				<a href=""> <img src="../assets/icon-profile.png" alt=""> </a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
