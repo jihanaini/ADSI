@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FAQ</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+	</style>
+	<style>
+		:root {
+			--primary-color-title: #000;
+			--primary-color-content: #868d8d;
+			-secondary-color-content:
+				#fff;
+			--tersier-color-content:
+				#0a8090;
+
+			--primarybutton:
+				#00bcd4;
+			--background-menu:
+				#f4f4f6;
+		}
+
+		* {
+
+			margin: 0;
+			padding: 0;
+			font-family: "Source Sans Pro", "sans-serif";
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			font-weight: normal;
+			text-decoration: none;
+		}
+
+		.container {
+			height: 760px;
+			width: 375px;
+			margin: 20px;
+			padding: 3vh 0;
+			-webkit-box-shadow: 5px 2px 8px 2px var(--primary-color-content);
+			boxshadow: 5px 2px 8px 2px var(--primary-color-content);
+		}
+
+		.container .contents .navbar {
+			margin: 0px 35px;
+		}
+
+		.container .contents .navbar #hamb-nav {
+			float: left;
+		}
+
+		.container .contents .navbar #profile-pic {
+			float: right;
+		}
+
+		.container .contents .jumb {
+			padding-top: 50px;
+			text-align: center;
+		}
+
+		.container .contents .jumb hr {
+			border-top: transparent;
+			border-bottom: 5px solid var(--primary-button);
+			width: 120px;
+			margin: 2vh auto;
+		}
+
+		.container .contents .jumb h1 {
+			position: relative;
+			top: 0vh;
+			font-weight: bold;
+			color: var(--primary-color-title);
+			font-size: 32px;
+			max-width: 70%;
+			margin: auto;
+		}
+
+		.title h2 {
+			font-size: 26px;
+		}
+
+		.search-box {
+			padding-bottom: 20px;
+		}
+
+		.search-box input {
+			width: 300px;
+			height: 40px;
+			border-radius: 30px;
+			background-color: #edf3f7;
+			border: transparent;
+			padding-left: 25px;
+			font-size: 16px;
+		}
+
+		.container .contents .title {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			margin: 0vh 35px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.container .contents .title h1 {
+			padding: 0 1.5vw;
+		}
+
+		.container .contents .title b {
+			font-weight: bold;
+		}
+
+		.container .contents .content {
+			margin-bottom: 18vh;
+		}
+
+		.container .contents .content #card {
+			display: -webkit-box;
+			display: -msflexbox;
+			display: flex;
+			margin: 0px 35px;
+			margin-bottom: 3vh;
+		}
+
+		.container .contents .content #card .con {
+			padding: 10px;
+		}
+
+		.container .contents .content #card .con h3 {
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.container .contents .content #card .con p {
+			color: var(--primary-colorcontent);
+		}
+
+		.container .contents .menu {
+			margin-top: 100px;
+			background-color: var(-background-menu);
+			height: 55px;
+		}
+
+		.container .contents .menu a img {
+			margin: 2vh 4vh;
+		}
+
+		/*# sourceMappingURL=Halaman_Pilih_Layanan.css.map*/
+
+		.content .keyword button {
+			height: 30px;
+			border-radius: 30px;
+			background-color: var(--secondary-color-content);
+			border-style: solid;
+			border-color: var(-primary-button);
+			border-width: 1px;
+			padding-left: 14px;
+			padding-right: 14px;
+			font-size: 14px;
+			margin-left: 5px;
+			margin-right: 5px;
+		}
+
+		.content .keyword button:hover {
+			background-color: var(--primary-button);
+			color: var(--secondary-color-content);
+		}
+
+		.faq {
+			margin-top: -110px;
+		}
+
+		summary {
+			width: 380px;
+			font-size: 14px;
+			font-weight: 600;
+			color: var(-primary-color-title);
+			padding-left: 3em;
+			padding-top: 10px;
+			margin-bottom: 1rem;
+			outline: none;
+			border-radius: 0.25rem;
+			text-align: left;
+			cursor: pointer;
+			position: relative;
+		}
+
+		.faq_content p {
+			padding-left: 3em;
+			padding-right: 2em;
+		}
+
+		details[open] summary~* {
+			animation: sweep 0.5s ease-in-out;
+		}
+
+		@keyframes sweep {
+			0% {
+				opacity: 0;
+				margin-top: -10px;
+			}
+
+			100% {
+				opacity: 1;
+				margin-top: 0px;
+			}
+		}
+
+		details>summary::after {
+			position: absolute;
+			content: "+";
+			right: 20px;
+			padding-right: 2em;
+		}
+
+		details[open]>summary::after {
+			position: absolute;
+			content: "-";
+			right: 20px;
+		}
+
+		details>summary::-webkit-details-marker {
+			display: none;
+		}
+
+		.container .quest hr {
+			margin: 30px 30px 15px;
+			text-align: right;
+		}
+
+		.container .quest p {
+			margin: 10px 30px;
+		}
+
+		.container .quest button {
+			background-color: var(--secondary-color-content);
+			border-color: var(--primary-color-content);
+			border-style: solid;
+			border-width:
+				1px;
+			border-radius: 30px;
+			padding: 2px 10px;
+			margin: 2px;
+		}
+
+		.container .quest button:hover {
+			background-color: var(--primary-button);
+			color:
+				var(--secondary-color-content);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="contents">
+			<div class="navbar">
+				<br>
+				<br>
+				<a href=""> <img src="aset/logo.png" alt="" id="hamb-nav">
+				</a>
+				<br>
+				<br>
+			</div>
+			<div class="jumb">
+				<h1> Frequently Asked Question </h1>
+				<br>
+			</div>
+			<div class="search-box" align=center>
+				<input type="search" id="search" placeholder="Cari Berdasarkan Keyword"/>
+				<img src="aset/search.png" alt="">
+			</div>
+			<div class="content">
+				<div class="keyword" id="card">
+					<button>Sparepart</button>
+					<button>Transaksi</button>
+					<button>Lokasi</button>
+				</div>
+			</div>
+			<div class="faq" id="card">
+				<details open>
+					<summary>
+						Bagaimana cara registrasi?</summary>
+					<div class="faq_content">
+						<p>1. Klik tombol registrasi yang ada di home<p>
+						   2. Lengkapi formulir yang ada dengan data diri anda<p>
+						   3. Registrasi berhasil .</p>
+					</div>
+				</details>
+				<details>
+					<summary>Bagaimana cara membooking service?</summary>
+					<div class="faq_content">
+						<p>Pilih menu booking service.</p>
+					</div>
+				</details>
+				<details>
+					<summary>Bagaimana cara melakukan pembelian produk?</summary>
+					<div class="faq_content">
+						<p>Pilih produk pada katalog sparepart, lalu pilih metode pembayaran.</p>
+					</div>
+				</details>
+			</div>
+			<div class="menu">
+				<a href=""> <img src="aset/home.png" alt=""> </a>
+				<a href=""> <img src="aset/katalog.png" alt=""> </a>
+				<a href=""> <img src="aset/riwayat.png" alt=""> </a>
+				<a href=""> <img src="aset/akun.png" alt=""> </a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
