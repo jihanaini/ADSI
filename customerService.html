@@ -5,175 +5,69 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> Halaman Customer Service </title>
-	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400
-;600;700&display=swap" rel="stylesheet">
 	<style>
-		:root {
-			--primary-color-title: #000;
-			--primary-color-content: #868d8d;
-			--secondary-color-content: #fff;
-			--tersier-color-content: #0a8090;
-			--primarybutton:
-				#00bcd4;
-			--background-menu: #f4f4f6;
-		}
-
-		* {
-			margin: 0;
-			padding: 0;
-			font-family: "Source Sans Pro", sans-serif;
-			-webkit-box-sizing: border-box;
-			box-sizing: border-box;
-			font-weight: normal;
-			text-decoration: none;
-		}
-
-		.container {
-			height: 760px;
-			width: 375px;
-			margin: 20px;
-			padding: 3vh 0;
-			-webkit-box-shadow: 5px 2px 8px 2px var(--primary-colorcontent);
-
-			box-shadow:
-				5px 2px 8px 2px var(--primary-color-content);
-		}
-
-		.container .contents .navbar #hamb-nav {
-			margin: 4vh;
-		}
-
-		.container .contents .navbar #prof-pic {
-			margin: 4vh;
-			float: right;
-		}
-
-		.container .contents .title h1 {
-			font-weight: bold;
-			text-align: center;
-			paddingleft: 4vw;
-		}
-
-		.container .contents img {
-			margin: 1.5vh auto;
-			margin-left: 4vw;
-		}
-
-		.container .contents hr {
-			border-top: transparent;
-			border-bottom: 5px solid var(--primary-button);
-			width: 120px;
-			margin: 2vh auto;
-		}
-
-		.container .contents .contents .card {
-			background-color: rgba(196, 196, 196, 0.15);
-			border-radius: 20px;
-			height: 60px;
-			width: 316px;
-			margin: 2.5vh auto;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-		}
-
-
-
-		.container .contents .contents .card img {
-			height: 50px;
-			margin: 0.5vh 0.5vw;
-		}
-
-
-
-		.container .contents .contents .card h1 {
-			font-size: 20px;
-			line-height: 60px;
-			padding-right: 1vw;
-		}
-
-
-
-		.container .contents .contents .card:hover {
-			background-color:rgba(94, 94, 94, 0.15);
-		}
-
-
-
-		.container .contents .menu {
-
-			margin-top: 25vh;
-
-			background-color: var(-background-menu);
-			height: 55px;
-		}
-
-
-
-		.container .contents .menu a img {
-			margin: 2vh 4vh;
-		}
-
-		/*# sourceMappingURL=Halaman_Customer_Service.css.map*/
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 	</style>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="./aset/script/config.js"></script>
+	<title>Customer Service</title>
 </head>
 
 <body>
-	<div class="container">
-		<div class="contents">
-			<div class="navbar">
-				<a href="">
-					<img src="../assets/navbar.png" alt="" id="hamb-nav">
-
-				</a>
-				<a href="">
-					<img src="../assets/profile.png" alt="" id="prof-pic">
-				</a>
+	<div class="box-border border-2 w-96 font-poppins">
+		<div class="flex flex-col bg-yellow-400 px-2 pb-12 rounded-b-lg">
+			<div>
+				<img src="aset/phone.png" className="p-2">
 			</div>
-			<div class="title">
-				<h1>Customer Service</h1>
-			</div>
-			<hr>
-			<img src="../assets/customerService-pic.png" alt="">
-			<div class="contents">
-			<div class="subtitle">
-				<h2>Kami siap melayani anda!</h2>
-			</div>
-				<div id="cards">
-					<a href="">
-						<div class="card">
-							<h1> METODE </h1>
-						</div>
-					</a>
-					<a href="">
-						<div class="card">
-							<img src="../assets/icon-phone.png" alt="">
-							<h1> Panggilan Suara </h1>
-						</div>
-					</a>
-					<a href="">
-						<div class="card">
-							<img src="../assets/icon-email.png" alt="">
-							<h1> Email </h1>
-						</div>
-					</a>
-					<a href="">
-						<div class="card">
-							<img src="../assets/icon-livechat.png" alt="">
-							<h1> Live Chat </h1>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="menu">
-				<a href=""> <img src="../assets/icon-home.png" alt=""> </a>
-				<a href=""> <img src="../assets/icon-notification.png" alt=""> </a>
-				<a href=""> <img src="../assets/icon-bookmarked-click.png" alt="">
-				</a>
-				<a href=""> <img src="../assets/icon-profile.png" alt=""> </a>
+			<div class="flex">
+				<img src="aset/ic_round-chevron-left.png">
+				<span class="px-20 font-bold text-lg">Customer Service</span>
 			</div>
 		</div>
+		<div class="flex justify-center mb-5">
+			<div class="flex h-44 w-72 -mt-5 bg-white justify-center rounded-lg">
+				<img src="aset/customerService.png" alt="">
+			</div>
+		</div>
+		<div class="font-bold text-center mb-2">
+			<h2>Kami siap melayani anda!</h2>
+		</div>
+		<div>
+			<a href="">
+				<div class="flex justify-center mb-2">
+					<div class="w-52 h-10 bg-yellow-400 rounded text-center font-bold px-4 py-2">
+						<h1> METODE </h1>
+					</div>
+				</div>
+			</a>
+			<a href="">
+				<div class="flex justify-center mb-2">
+				<div class="flex py-2 border-2 border-black w-52 h-10 text-sm rounded text-center font-bold px-4 py-2 ">
+					<img src="aset/telepon.png" alt="" class="w-6 h-6">
+					<h1 class="ml-2">Panggilan Suara</h1>
+				</div>
+			</div>
+			</a>
+			<a href="">
+				<div class="flex justify-center mb-2">
+				<div class="flex py-2 border-2 border-black w-52 h-10 text-sm rounded text-center font-bold px-4 py-2 ">
+					<img src="aset/email.png" alt="" class="w-6 h-6">
+					<h1 class="ml-2">Email</h1>
+				</div>
+			</div>
+			<a href="">
+				<div class="flex justify-center mb-20">
+				<div class="flex py-2 border-2 border-black w-52 h-10 text-sm rounded text-center font-bold px-4 py-2 ">
+					<img src="aset/chat.png" alt="" class="w-6 h-6">
+					<h1 class="ml-2">Live Chat</h1>
+				</div>
+		</div>
+	</div>
+	<div class="relative flex justify-between w-96 bg-primary py-2 px-6 bottom-0 sticky">
+		<button><img src="./aset/home.png" class="w-10 opacity-50"></button>
+		<button><img src="./aset/katalog-black.png" class="w-8"></button>
+		<button><img src="./aset/riwayat-black.png" class="w-6 opacity-50"></button>
+		<button><img src="./aset/profil-black.png" class="w-10 opacity-50"></button>
 	</div>
 </body>
 
