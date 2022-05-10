@@ -7,32 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>FAQ</title>
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
-	</style>
-	<style>
 		:root {
 			--primary-color-title: #000;
 			--primary-color-content: #868d8d;
-			-secondary-color-content:
-				#fff;
-			--tersier-color-content:
-				#0a8090;
-
-			--primarybutton:
-				#00bcd4;
-			--background-menu:
-				#f4f4f6;
-		}
-
-		* {
-
-			margin: 0;
-			padding: 0;
-			font-family: "Source Sans Pro", "sans-serif";
-			-webkit-box-sizing: border-box;
-			box-sizing: border-box;
-			font-weight: normal;
-			text-decoration: none;
+			-secondary-color-content:#fff;
+			--tersier-color-content:#0a8090;
+			--primarybutton:#00bcd4;
+			--background-menu:#f4f4f6;
 		}
 
 		.container {
@@ -42,6 +23,9 @@
 			padding: 3vh 0;
 			-webkit-box-shadow: 5px 2px 8px 2px var(--primary-color-content);
 			boxshadow: 5px 2px 8px 2px var(--primary-color-content);
+		}
+		.container .contents .yellow {
+			background-color: #FFC600;
 		}
 
 		.container .contents .navbar {
@@ -140,7 +124,7 @@
 
 		.container .contents .menu {
 			margin-top: 100px;
-			background-color: var(-background-menu);
+			background-color: #FFC600;
 			height: 55px;
 		}
 
@@ -148,17 +132,16 @@
 			margin: 2vh 4vh;
 		}
 
-		/*# sourceMappingURL=Halaman_Pilih_Layanan.css.map*/
-
 		.content .keyword button {
 			height: 30px;
 			border-radius: 30px;
-			background-color: var(--secondary-color-content);
+			background-color: #FFC600;
 			border-style: solid;
-			border-color: var(-primary-button);
-			border-width: 1px;
+			border-color: black;
+			border-width: 2px;
 			padding-left: 14px;
 			padding-right: 14px;
+			font-style: bold;
 			font-size: 14px;
 			margin-left: 5px;
 			margin-right: 5px;
@@ -226,37 +209,13 @@
 			display: none;
 		}
 
-		.container .quest hr {
-			margin: 30px 30px 15px;
-			text-align: right;
-		}
-
-		.container .quest p {
-			margin: 10px 30px;
-		}
-
-		.container .quest button {
-			background-color: var(--secondary-color-content);
-			border-color: var(--primary-color-content);
-			border-style: solid;
-			border-width:
-				1px;
-			border-radius: 30px;
-			padding: 2px 10px;
-			margin: 2px;
-		}
-
-		.container .quest button:hover {
-			background-color: var(--primary-button);
-			color:
-				var(--secondary-color-content);
-		}
 	</style>
 </head>
 
 <body>
 	<div class="container">
 		<div class="contents">
+			<div class="yellow">
 			<div class="navbar">
 				<br>
 				<br>
@@ -272,6 +231,7 @@
 			<div class="search-box" align=center>
 				<input type="search" id="search" placeholder="Cari Berdasarkan Keyword"/>
 				<img src="aset/search.png" alt="">
+			</div>
 			</div>
 			<div class="content">
 				<div class="keyword" id="card">
