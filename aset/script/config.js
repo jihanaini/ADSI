@@ -14,8 +14,9 @@ tailwind.config = {
             },
             boxShadow:{
                 'all' : '-5px 1px 8px 2px rgba(0, 0, 0, 0.3)'
-                // 0 35px 60px -15px rgba(0, 0, 0, 0.3)
-                // 1px 0 7px -2px #888
+            },
+            fontSize:{
+                '2xs' : '0.625rem',
             }
         }
     }
