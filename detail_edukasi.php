@@ -1,3 +1,14 @@
+<?php
+include "db.php";
+if(isset($_GET['id_artikel'])){
+    $id_artikel = $_GET['id_artikel'];
+    $artikel = mysqli_query($conn, "select * from artikel where id_artikel = $id_artikel");
+    $artikel = mysqli_fetch_object($artikel);
+}
+else{
+    header("location:edukasi.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,25 +53,16 @@
                 <img src="aset/phone.png" className="p-2">
             </div>
             <div class="flex">
-                <a href="edukasi.html">
+                <a href="edukasi.php">
                     <img src="aset/ic_round-chevron-left.png">
                 </a>
             </div>
         </div>
         <div class="flex flex-col p-2 h-screen overflow-auto">
-            <h1 class="px-10 py-2 font-bold">Cara Merawat Motor Matic dengan Benar!</h1>
-            <span class="px-10 py-2 text-xs">Selasa, 19 April 2022</span>
-            <img src="./aset/detail-artikel.png" class="w-72 self-center">
-            <p class="px-10 py-2 text-justify text-sm">Tahukah kamu ternyata merawat motor matic dapat dilakukan dengan
-                mudah loh. Tahukah
-                kamu ternyata merawat motor matic dapat dilakukan dengan mudah loh. Tahukah kamu ternyata merawat motor
-                matic dapat dilakukan dengan mudah loh. Tahukah kamu ternyata merawat motor matic dapat dilakukan dengan
-                mudah loh. Tahukah kamu ternyata merawat motor matic dapat dilakukan dengan mudah loh.
-                <br />
-                <br />
-                Tahukah kamu ternyata merawat motor matic dapat dilakukan dengan mudah loh. Tahukah kamu ternyata
-                merawat motor matic dapat dilakukan dengan mudah loh. Tahukah kamu ternyata merawat motor matic dapat
-                dilakukan dengan mudah loh. </p>
+            <h1 class="px-10 py-2 font-bold"><?= $artikel->nama_artikel?></h1>
+            <span class="px-10 py-2 text-xs"><?= $artikel->tanggal_artikel?></span>
+            <img src="./aset/<?= $artikel->gambar_artikel?>" class="w-72 self-center">
+            <p class="px-10 py-2 text-justify text-sm"><?= $artikel->isi_artikel?></p>
         </div>
     </div>
 </body>
