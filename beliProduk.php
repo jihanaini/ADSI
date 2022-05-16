@@ -4,12 +4,9 @@
 //     echo'<script>window.location="login.php"</script>';
 // }
 include "db.php";
-
-$ambil_data = mysqli_query($conn, "select * from produk p inner join user u on p.id_produk=u.id_user");
+$id_produk = $_GET['id_produk'];
+$ambil_data = mysqli_query($conn, "select * from produk p where id_produk = $id_produk");
 $d = mysqli_fetch_object($ambil_data);
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +26,7 @@ $d = mysqli_fetch_object($ambil_data);
     <div class="box-border border-2 w-96 p-2 font-poppins">
         <img src="aset/Black.png" className="p-0">
         <div class="flex">
-            <a href="product.html">
+            <a href="product.php">
                 <img src="aset/ic_round-chevron-left.png">
             </a>
             <span class="px-20 font-bold text-lg">Pembelian Produk</span>
@@ -38,18 +35,18 @@ $d = mysqli_fetch_object($ambil_data);
         <div class="pr-10 mt-14">
             <div class="ml-8">
                 <div class="text-base font-semibold">Informasi produk</div>
-                <img src="aset/img dummy.png" class="border-1 border-black rounded mt-2.5">
-                <div class="text-3xl text-medium mt-2 font-semibold" name="harga">Rp<?php echo $d->harga_produk?></div>
+                <img src="aset/<?= $d->gambar_produk?>" class="border-1 border-black rounded mt-2.5">
+                <div class="text-3xl text-medium mt-2 font-semibold" name="harga">Rp<?= number_format($d->harga_produk)?></div>
                 <div class="flex mt-2.5">
                     <div class="box-border h-7 w-16 bg-yellow-400 text-center pt-1">50% Off</div>
-                    <span class="ml-2 line-through">Rp1.000.000</span>
+                    <span class="ml-2 line-through">Rp<?= number_format($d->harga_produk * 100 / 50) ?></span>
                 </div>
-                <div class="text-xl text-medium mt-2 font-semibold"><?php echo $d->nama_produk?></div>
+                <div class="text-xl text-medium mt-2 font-semibold"><?= $d->nama_produk?></div>
             </div>
             <div class="mt-8 ml-4 border-t-2 border-black">
                 <div class="flex mt-2.5 text-base font-semibold">
                     <div>Stok Produk</div>
-                    <span class="ml-28"><?php echo $d->stok_produk?></span>
+                    <span class="ml-28"><?= $d->stok_produk?></span>
                 </div>
                 <div class="flex mt-2.5 text-base font-semibold">
                     <div>Merk</div>
@@ -59,7 +56,7 @@ $d = mysqli_fetch_object($ambil_data);
                     <div>Tahun Produksi</div>
                     <span class="ml-20 ">2020</span>
                 </div>
-                <div class="mt-6 text-base font-normal"><?php echo $d->spesifikasi_produk?></div>
+                <div class="mt-6 text-base font-normal"><?= $d->spesifikasi_produk?></div>
                 <button class="text-xs font-semibold mt-2.5">Baca Selengkapnya...</button>
             </div>
             <div class="ml-8">
@@ -112,7 +109,7 @@ if(isset($_POST['kirim'])){
     if($kirim){
         echo '<script>window.location="checkout.html"</script>';
     }else{
-        echo 'gagal'.mysqli_erro($conn);
+        echo 'gagal'.mysqli_error($conn);
     }
 }
 
