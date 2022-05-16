@@ -1,3 +1,16 @@
+<?php
+// session_start();
+// if($_SESSION['status_login'] != true){
+//     echo'<script>window.location="login.php"</script>';
+// }
+include "db.php";
+
+$ambil_data = mysqli_query($conn, "select * from produk p inner join user u on p.id_produk=u.id_user");
+$d = mysqli_fetch_object($ambil_data);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,17 +39,17 @@
             <div class="ml-8">
                 <div class="text-base font-semibold">Informasi produk</div>
                 <img src="aset/img dummy.png" class="border-1 border-black rounded mt-2.5">
-                <div class="text-3xl text-medium mt-2 font-semibold">Rp500.000</div>
+                <div class="text-3xl text-medium mt-2 font-semibold" name="harga">Rp<?php echo $d->harga_produk?></div>
                 <div class="flex mt-2.5">
                     <div class="box-border h-7 w-16 bg-yellow-400 text-center pt-1">50% Off</div>
                     <span class="ml-2 line-through">Rp1.000.000</span>
                 </div>
-                <div class="text-xl text-medium mt-2 font-semibold">Velg ban mobil Toyota Avanza/Gold</div>
+                <div class="text-xl text-medium mt-2 font-semibold"><?php echo $d->nama_produk?></div>
             </div>
             <div class="mt-8 ml-4 border-t-2 border-black">
                 <div class="flex mt-2.5 text-base font-semibold">
                     <div>Stok Produk</div>
-                    <span class="ml-28">10</span>
+                    <span class="ml-28"><?php echo $d->stok_produk?></span>
                 </div>
                 <div class="flex mt-2.5 text-base font-semibold">
                     <div>Merk</div>
@@ -46,36 +59,36 @@
                     <div>Tahun Produksi</div>
                     <span class="ml-20 ">2020</span>
                 </div>
-                <div class="mt-6 text-base font-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                    aliquam,
-                    purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor</div>
+                <div class="mt-6 text-base font-normal"><?php echo $d->spesifikasi_produk?></div>
                 <button class="text-xs font-semibold mt-2.5">Baca Selengkapnya...</button>
             </div>
             <div class="ml-8">
                 <div class="text-2xl font-semibold mt-9">Beli Produk</div>
                 <div class="flex mt-8">
-                    <div class="text-base font-medium">Jumlah Pembelian</div>
-                    <input class="box-border border-2 border-black rounded-md h-7 w-9 ml-28 text-center"></input>
+                    <div class="text-base font-medium" >Jumlah Pembelian</div>
+                    <input class="box-border border-2 border-black rounded-md h-7 w-9 ml-28 text-center" name="jumlah_pembelian"></input>
                 </div>
-                <div class="text-base font-medium mt-6">Nama Penerima</div>
+                <div class="text-base font-medium mt-6" >Nama Penerima</div>
                 <input
                     class="flex box-border border-2 mt-2.5 h-10 w-72 rounded-lg placeholder:text-gray-400 pl-6 text-sm"
-                    placeholder="Jennie Kim..." type="text">
+                    placeholder="Jennie Kim..." type="text" name="nama">
                 </input>
-                <div class="text-base font-medium mt-6">Alamat pengiriman</div>
+                <div class="text-base font-medium mt-6" >Alamat pengiriman</div>
                 <input
                     class="flex box-border border-2 mt-2.5 h-16 w-72 rounded-lg placeholder:text-gray-400 pl-6 text-sm"
-                    placeholder="Isi alamat disini..." type="text">
+                    placeholder="Isi alamat disini..." type="text" name="alamat">
                 </input>
                 <div class="flex">
                     <div class="box-border border-2 w-3.5 h-4 rounded border-yellow-400 mt-4"></div>
                     <span class="text-sm ml-1 mt-3">Data yang saya isikan sudah benar</span>
                 </div>
 
-                <a href="checkout.html">                <button type="submit"
-                    class="border-2 w-72 h-10 mt-12 rounded-lg bg-yellow-400 mb-10 text-center font-semibold">
+                <!-- <a href="checkout.html">                 -->
+                    <button type="submit"
+                    class="border-2 w-72 h-10 mt-12 rounded-lg bg-yellow-400 mb-10 text-center font-semibold" name="kirim">
                     <div class="pt-1">Checkout</div>
-                </button></a>
+                    </button>
+                <!-- </a> -->
 
             </div>
 
@@ -84,3 +97,24 @@
 </body>
 
 </html>
+
+<?php
+$i=1;
+if(isset($_POST['kirim'])){
+    $jumlah_pembelian = $_POST['jumlah_pembelian'];
+    $nama_penerima = $_POST['nama'];
+    $alamat_pengiriman = $_POST['alamat'];
+
+    $kirim = mysqli_query($conn, "insert into pembelian_produk values(
+        '".$i."', '".$jumlah_pembelian."', '".$d->id_user."', '".$d->id_produk."', '".$nama_penerima."', '".$alamat_pengiriman."'
+    )");
+
+    if($kirim){
+        echo '<script>window.location="checkout.html"</script>';
+    }else{
+        echo 'gagal'.mysqli_erro($conn);
+    }
+}
+
+?>
+
