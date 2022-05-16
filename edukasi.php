@@ -1,7 +1,8 @@
 <?php
-include "db.php";
-$edukasi = mysqli_query($conn, "select * from artikel");
-$edukasis = mysqli_fetch_all($edukasi, MYSQLI_ASSOC);
+include "model.php";
+$check = checkLogin();
+if(!$check) header("location:login.php");
+$edukasis = getData("artikel");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,7 @@ $edukasis = mysqli_fetch_all($edukasi, MYSQLI_ASSOC);
         <div class="min-h-screen">
             <div class="grid grid-cols-1 px-6 mt-4">
                 <?php
-                foreach ($edukasi as $e) {
+                foreach ($edukasis as $e) {
                     $arry = explode(" ", $e['isi_artikel']);
                     $arry = array_slice($arry, 0, 8);
                     $e['isi_artikel'] = implode(" ", $arry);

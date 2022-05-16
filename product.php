@@ -1,7 +1,8 @@
 <?php
-include "db.php";
-$product = mysqli_query($conn, "select * from produk");
-$products = mysqli_fetch_all($product, MYSQLI_ASSOC);
+include "model.php";
+$check = checkLogin();
+if(!$check) header("location:login.php");
+$products = getData("produk");
 ?>
 
 <!DOCTYPE html>

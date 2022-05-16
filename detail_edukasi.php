@@ -1,9 +1,9 @@
 <?php
-include "db.php";
+include "model.php";
+$check = checkLogin();
+if(!$check) header("location:login.php");
 if(isset($_GET['id_artikel'])){
-    $id_artikel = $_GET['id_artikel'];
-    $artikel = mysqli_query($conn, "select * from artikel where id_artikel = $id_artikel");
-    $artikel = mysqli_fetch_object($artikel);
+    $artikel = getDataWhere('artikel', 'id_artikel', $_GET['id_artikel']);
 }
 else{
     header("location:edukasi.php");
@@ -59,10 +59,10 @@ else{
             </div>
         </div>
         <div class="flex flex-col p-2 h-screen overflow-auto">
-            <h1 class="px-10 py-2 font-bold"><?= $artikel->nama_artikel?></h1>
-            <span class="px-10 py-2 text-xs"><?= $artikel->tanggal_artikel?></span>
-            <img src="./aset/<?= $artikel->gambar_artikel?>" class="w-72 self-center">
-            <p class="px-10 py-2 text-justify text-sm"><?= $artikel->isi_artikel?></p>
+            <h1 class="px-10 py-2 font-bold"><?= $artikel['nama_artikel']?></h1>
+            <span class="px-10 py-2 text-xs"><?= $artikel['tanggal_artikel']?></span>
+            <img src="./aset/<?= $artikel['gambar_artikel']?>" class="w-72 self-center">
+            <p class="px-10 py-2 text-justify text-sm"><?= $artikel['isi_artikel']?></p>
         </div>
     </div>
 </body>

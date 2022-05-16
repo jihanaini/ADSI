@@ -1,4 +1,5 @@
 <?php
+    Global $conn;
     $hostname = 'localhost';
     $username = 'root';
     $password = '';
