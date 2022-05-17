@@ -1,3 +1,10 @@
+<?php
+include "model.php";
+$check = checkLogin();
+if(!$check) header("location:login.php");
+$user = getDataLogin();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

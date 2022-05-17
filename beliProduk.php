@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // session_start();
 // if($_SESSION['status_login'] != true){
 //     echo'<script>window.location="login.php"</script>';
@@ -7,6 +8,13 @@ include "db.php";
 $id_produk = $_GET['id_produk'];
 $ambil_data = mysqli_query($conn, "select * from produk p where id_produk = $id_produk");
 $d = mysqli_fetch_object($ambil_data);
+=======
+include "model.php";
+$check = checkLogin();
+if(!$check) header("location:login.php");
+$user = getDataLogin();
+$d = getDataWhere('produk', 'id_produk', $_GET['id_produk']);
+>>>>>>> 3e2415950cafb0085daf62e1f850acdd002a2a12
 ?>
 <!DOCTYPE html>
 <html lang="en">

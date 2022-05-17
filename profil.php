@@ -1,3 +1,8 @@
+<?php
+include "model.php";
+$user = getDataLogin();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,3 +135,7 @@
 </body>
 
 </html>
+
+<?php
+<input ...... value="<?=$get['nama_user']?>"/>
+?>
