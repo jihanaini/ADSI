@@ -79,7 +79,7 @@ if (isset($_POST['kirim'])) {
     $i++;
 
     if ($kirim) {
-        echo '<script>window.location="home.html"</script>';
+        echo '<script>window.location="home.php"</script>';
     } else {
         echo 'gagal' . mysqli_error($conn);
     }

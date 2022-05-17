@@ -137,5 +137,4 @@ $u = getDataWhere("user", "id_user", 1);
         </div>
     </div>
 </body>
-
 </html>

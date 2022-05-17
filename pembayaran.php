@@ -15,7 +15,6 @@
     <script>
     function changeColor(id)
     {
-      // document.getElementById(id).style.color = "#F1571C"; // forecolor
       document.getElementById(id).style.backgroundColor = "#F1571C"; // backcolor
     }
     </script>
