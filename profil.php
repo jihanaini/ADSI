@@ -116,10 +116,10 @@
 
     </form>
         <div class="relative flex justify-between bg-primary py-2 px-6 bottom-0 sticky">
-            <button><img src="./aset/home.png" class="w-10 opacity-50"></button>
-            <button><img src="./aset/katalog-black.png" class="w-8 opacity-50"></button>
-            <button><img src="./aset/riwayat-black.png" class="w-6 opacity-50"></button>
-            <button><img src="./aset/profil-black.png" class="w-10"></button>
+        <a href="home.php"><button><img src="./aset/home.png" class="w-10 opacity-50"></button></a>
+				<a href="product.php"><button><img src="./aset/katalog-black.png" class="w-8"></button></a>
+				<a href="riwayat.php"><button><img src="./aset/riwayat-black.png" class="w-6 opacity-50"></button></a>
+				<a href="profil.php"><button><img src="./aset/profil-black.png" class="w-10 opacity-50"></button></a>
         </div>
     </div>
 </body>

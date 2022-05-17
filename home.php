@@ -86,8 +86,8 @@ $user = getDataWhere("user", "id_user", 1);
 			<div class="relative flex justify-between bg-primary py-2 px-6 bottom-0 sticky">
 				<a href="home.php"><button><img src="./aset/home.png" class="w-10 opacity-50"></button></a>
 				<a href="product.php"><button><img src="./aset/katalog-black.png" class="w-8"></button></a>
-				<a href="riwayat.html"><button><img src="./aset/riwayat-black.png" class="w-6 opacity-50"></button></a>
-				<a href="profil.html"><button><img src="./aset/profil-black.png" class="w-10 opacity-50"></button></a>
+				<a href="riwayat.php"><button><img src="./aset/riwayat-black.png" class="w-6 opacity-50"></button></a>
+				<a href="profil.php"><button><img src="./aset/profil-black.png" class="w-10 opacity-50"></button></a>
 			</div>
 		</div>
 	</div>
