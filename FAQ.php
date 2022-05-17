@@ -1,5 +1,7 @@
 <?php
 include "model.php";
+$check = checkLogin();
+if(!$check) header("location:login.php");
 $f = getData($tabel = "faq");
 ?>
 
