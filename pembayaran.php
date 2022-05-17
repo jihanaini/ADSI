@@ -31,7 +31,7 @@
       </div>
 
       <div class="flex px-6 py-2 bg-white">
-        <a href=""><img src="aset/ic_round-chevron-left.png" class="object-contain h-5" /></a>
+        <a href="checkout.php"><img src="aset/ic_round-chevron-left.png" class="object-contain h-5" /></a>
 
       <div><span class="px-24 font-black text-md ">Pembayaran</span></div>
     </div>
