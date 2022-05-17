@@ -91,3 +91,12 @@ function checkLogin(){
 function getDataLogin(){
     return $_SESSION["login"];
 }
+
+function getDataJoin($tabel1 = "", $tabel2 = "", $tabel3 = "", $column = "", $id = null)
+{
+    global $conn;
+    $row = mysqli_query($conn, "select * from $tabel1 inner join $table2  
+    on $table1.$id = $table2.$id join $table2 on $table2.$id = $table3.$id ");
+    $rows = mysqli_fetch_assoc($row);
+    return $rows;
+}

@@ -1,3 +1,8 @@
+<?php 
+include "model.php"; 
+$data = getData("produk", "pembelian_produk","user","id_produk")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +36,7 @@
 
         <div class="box-border bg-white mt-0.5 px-6 pt-4 pb-5">
             <div class="flex gap-x-4">
-                <img src="aset/product-img.png" alt="" class="h-16">
+                <img src="./aset/<?= $data->gambar_produk ?>" alt="" class="h-16">
 
                 <div>
                     <p class="text-sm font-semibold">Velg ban mobil Toyota Avanza/Gold</p>
