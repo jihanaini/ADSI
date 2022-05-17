@@ -1,3 +1,11 @@
+<?php
+include "model.php";
+$d_t = getDataWhere("transaksi", "id_transaksi", 1);
+$d_bs = getDataWhere("booking_service", "id_pemesanan", 1);
+$u = getDataWhere("user", "id_user", 1);
+$biaya_layanan = 2500;
+$voucher = 25000;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +26,7 @@
         </div>
   
         <div class="flex px-6 py-2 bg-white">
-            <a href="book.html"><img src="aset/ic_round-chevron-left.png" class="object-contain h-5" /></a>
+            <a href="bookingService.php"><img src="aset/ic_round-chevron-left.png" class="object-contain h-5" /></a>
 
             <div><span class="px-16 font-black text-md ">Detail Pemesananan</span></div>
         </div>
@@ -36,17 +44,17 @@
 
             <div class="flex gap-x-14 mb-2">
                 <p class="text-gray-500">Nama</p>
-                <p>Instant - GoSend</p>
+                <p><?= $u['nama_user'] ?></p>
             </div>
 
             <div class="flex gap-x-7 mb-2">
                 <p class="text-gray-500">Jenis Mobil</p>
-                <p>GK-11-56761281</p>
+                <p>Toyota Avanza 2018</p>
             </div>
 
             <div class="flex gap-x-12 mb-2">
                 <p class="text-gray-500">Alamat</p>
-                <p>Jl. In Aja Dulu, Malang, Jawa TImur</p>
+                <p><?= $u['alamat'] ?></p>
             </div>
         </div>
 
@@ -57,13 +65,13 @@
                 <img src="aset/servis.png" alt="" class="h-14">
 
                 <div>
-                    <p class="text-sm font-semibold">Service AC Mobil</p>
+                    <p class="text-sm font-semibold"><?= $d_bs['jenis_layanan'] ?></p>
                     <div class="mt-4 text-xs flex justify-between gap-x-16">
                         <div>
                             <p class="text-gray-500 mr-2">Jadwal Service</p>
                         </div>
                         <div class="">
-                            <p class="">23 Maret 2022</p>
+                            <p class=""><?= $d_bs['jadwal_service'] ?></p>
                             <p class="text-right">15.00 WIB</p>
                         </div>
                     </div>

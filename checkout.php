@@ -1,10 +1,14 @@
-<?php 
-include "model.php"; 
-$data = getData("produk", "pembelian_produk","user","id_produk")
+<?php
+include "model.php";
+$d_t = getDataWhere("transaksi", "id_transaksi", 1);
+$d_p = getDataWhere("produk", "id_produk", 1);
+$d_pp = getDataWhere("pembelian_produk", "id_pembelian", 1);
+$u = getDataWhere("user", "id_user", 1);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,42 +17,43 @@ $data = getData("produk", "pembelian_produk","user","id_produk")
     <script src="./aset/script/config.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-    </style> 
+    </style>
     <title>Checkout</title>
 </head>
+
 <body>
     <div class="box-border border-2 w-96 font-poppins bg-latar">
         <div class="bg-white">
-          <img src="aset/Black.png" className="object-contain" />
+            <img src="aset/Black.png" className="object-contain" />
         </div>
-  
+
         <div class="flex px-6 py-2 bg-white">
-            <a href="buy.html"><img src="aset/ic_round-chevron-left.png" class="object-contain h-5" /></a>
+            <a href="beliProduk.php"><img src="aset/ic_round-chevron-left.png" class="object-contain h-5" /></a>
 
             <div><span class="px-28 font-black text-md ">Checkout</span></div>
         </div>
 
         <div class="box-border bg-white mt-2 px-6 py-4 text-xs">
             <span class="font-semibold">Alamat Pengiriman</span>
-            <p class="mt-1 text-xs">Jennie Kim | 628158877223 <br>
-            Jl. In Aja Dulu, Malang, Jawa Timur</p>
+            <p class="mt-1 text-xs"><?= $u['nama_user'] ?> | <?= $u['no_hp'] ?><br>
+                <?= $u['alamat'] ?></p>
         </div>
 
         <div class="box-border bg-white mt-0.5 px-6 pt-4 pb-5">
             <div class="flex gap-x-4">
-                <img src="./aset/<?= $data->gambar_produk ?>" alt="" class="h-16">
+                <img src="./aset/<?= $d_p['gambar_produk'] ?>" alt="" class="h-16">
 
                 <div>
-                    <p class="text-sm font-semibold">Velg ban mobil Toyota Avanza/Gold</p>
+                    <p class="text-sm font-semibold"><?= $d_p['nama_produk'] ?></p>
                     <div class="mt-3 text-xs font-semibold flex justify-between">
-                        <div><span class="">Rp500.000</span>
+                        <div><span class="">Rp<?= number_format($d_t['total_pembayaran']) ?></span>
                             <span class="line-through text-gray-500 ml-2">Rp1.000.000</span></div>
-                        <span class="text-gray-500">x1</span>
+                        <span class="text-gray-500">x<?= $d_pp['jumlah_pembelian'] ?></span>
                     </div>
                 </div>
             </div>
 
-            
+
             <div class="flex justify-between text-xs mt-8">
                 <div class="form-check">
                     <input class="form-check-input appearance-none h-4 w-4 border border-black rounded-sm bg-white cursor-pointer mr-2 mt-0.5" type="checkbox" value="" id="flexCheckDefault">
@@ -89,7 +94,7 @@ $data = getData("produk", "pembelian_produk","user","id_produk")
 
         <div class="box-border bg-white px-6 py-4 mt-0.5 text-sm flex justify-between font-semibold">
             <p class="">Total Pesanan</p>
-            <p class="text-oren">Rp500.000</p>
+            <p class="text-oren">Rp<?= number_format($d_t['total_pembayaran']) ?></p>
         </div>
 
         <div class="box-border bg-white px-6 py-4 my-2 flex justify-between">
@@ -107,7 +112,7 @@ $data = getData("produk", "pembelian_produk","user","id_produk")
         <div class="box-border bg-white px-6 py-4 text-xs text-gray-500 mb-2">
             <div class="flex justify-between mb-3">
                 <span>Subtotal produk</span>
-                <span>Rp500.000</span>
+                <span>Rp<?= number_format($d_t['total_pembayaran']) ?></span>
             </div>
             <div class="flex justify-between mb-3">
                 <span>Subtotal pengiriman</span>
@@ -115,7 +120,7 @@ $data = getData("produk", "pembelian_produk","user","id_produk")
             </div>
             <div class="flex justify-between text-sm font-semibold text-black">
                 <span class="">Total Pembayaran</span>
-                <span class="text-oren">Rp500.000</span>
+                <span class="text-oren">Rp<?= number_format($d_t['total_pembayaran']) ?></span>
             </div>
         </div>
 
@@ -125,8 +130,12 @@ $data = getData("produk", "pembelian_produk","user","id_produk")
                 <p class="text-oren">Rp500.000</p>
             </div>
 
-            <button class="bg-primary p-2 rounded-lg font-semibold">Pilih Pembayaran</button>
+            <a href="pembayaran.php">
+                <div class="bg-primary p-2 rounded-lg font-semibold">Pilih Pembayaran</div>
+            </a>
+
         </div>
     </div>
 </body>
+
 </html>

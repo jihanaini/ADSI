@@ -1,17 +1,10 @@
 <?php
-// session_start();
-// if($_SESSION['status_login'] != true){
-//     echo'<script>window.location="login.php"</script>';
-// }
-include "db.php";
-$i=1;
-
-$ambil_data = mysqli_query($conn, "select * from user where id_user='".$i."'");
-$d = mysqli_fetch_object($ambil_data);
-
-
+include "model.php";
+$check = checkLogin();
+if(!$check) header("location:login.php");
+$user = getDataLogin();
+$d = getDataWhere('user', 'id_user', 1);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,21 +23,12 @@ $d = mysqli_fetch_object($ambil_data);
    <div class="box-border border-2 w-96 p-2 font-poppins">
        <img src="aset/Black.png" className="p-0">
        <div class="flex">
-        <img src="aset/ic_round-chevron-left.png">
+            <a href="product.php">
+                <img src="aset/ic_round-chevron-left.png">
+            </a>
         <span class="px-20 font-bold text-lg">Booking Service</span>
        </div>
 
-       <!-- <div class="pr-10 pl-8 mt-14">
-            <div class="text-base font-semibold">Pilih layanan service</div>
-            <div class="flex box-border border-2 mt-2.5 h-10 rounded-lg">
-                <div class="ml-6 my-2 text-xs text-gray-400">
-                    <span>Pilih layanan service</span>
-                </div>
-                <div class="ml-28">
-                <button><img src="aset/panah bawah.png"></button>
-                </div>
-            </div>
-       </div> -->
        <div class="pr-10 pl-8 mt-14">
             <div class="text-base font-semibold">Pilih layanan service</div>
             <form action="" method="post">
@@ -76,19 +60,8 @@ $d = mysqli_fetch_object($ambil_data);
 
        <div class="pr-10 pl-8 mt-14">
             <div class="text-base font-semibold">Pilih jadwal service</div>
-            <!-- <div class="flex box-border border-2 mt-2.5 h-10 rounded-lg">
-                <div class="ml-6 my-2 text-sm text-gray-400"> -->
-                    <!-- <span>dd/mm/yyyy</span> -->
                     <input type="text" class="box-border border-2 w-full mt-2.5 pl-6 h-10 text-sm focus:text-black text-gray-400 rounded-lg" name="jadwal_service" placeholder="yyyy/mm/dd">
-                        <!-- <div class="flex ml-10 mt-2">
-                        <button><img src="aset/tanggal.png"></button>
-                        </div> -->
                     </input>
-                <!-- </div> -->
-                <!-- <div class="ml-16 mt-2">
-                    <button><img src="aset/tanggal.png"></button>
-                </div> -->
-            <!-- </div> -->
             <div class="grid justify-items-stretch text-xs">
                 <button class="flex justify-self-end text-red-400 mt-2 font-semibold">Lihat rekomendasi jadwal service</button>
             </div>
@@ -96,24 +69,9 @@ $d = mysqli_fetch_object($ambil_data);
 
         <div class="pr-10 pl-8 mt-14">
             <div class="text-base font-semibold">Informasi pelanggan</div>
-            <input type="text" class="box-border border-2 w-full mt-2.5 pl-6 h-10 text-sm focus:text-black text-gray-400 rounded-lg" name="nama" placeholder="Nama" value="<?php echo $d->nama_user ?>"></input>
-            <input type="text" class="box-border border-2 w-full mt-2.5 pl-6 h-10 text-sm focus:text-black text-gray-400 rounded-lg" name="jenis_kendaraan" placeholder="Jenis Kendaraan" value="<?php echo $d->jenis_kendaraan?>"></input>
-            <textarea type="text" class="box-border border-2 w-full mt-2.5 pl-6 h-14 text-sm focus:text-black text-gray-400 rounded-lg" name="alamat" placeholder="Alamat" value="<?php echo $d->alamat?>"></textarea>
-            <!-- <div class="flex box-border border-2 mt-2.5 h-10 rounded-lg">
-                <div class="ml-6 my-2 text-sm text-gray-400">
-                    <span>Jennie Kim</span>
-                </div>
-            </div> -->
-            <!-- <div class="flex box-border border-2 mt-2.5 h-10 rounded-lg">
-                <div class="ml-6 my-2 text-sm text-gray-400">
-                    <span>Honda Civic 2022</span>
-                </div>
-            </div> -->
-            <!-- <div class="flex box-border border-2 mt-2.5 h-14 rounded-lg">
-                <div class="ml-6 my-4 text-sm text-gray-400">
-                    <span>Jl. In Aja Dulu, Malang, Jawa Timur</span>
-                </div>
-            </div> -->
+            <input type="text" class="box-border border-2 w-full mt-2.5 pl-6 h-10 text-sm focus:text-black text-gray-400 rounded-lg" name="nama" placeholder="Nama" value="<?= $d['nama_user'] ?>"></input>
+            <input type="text" class="box-border border-2 w-full mt-2.5 pl-6 h-10 text-sm focus:text-black text-gray-400 rounded-lg" name="jenis_kendaraan" placeholder="Jenis Kendaraan" value="<?= $d['jenis_kendaraan']?>"></input>
+            <input type="text" class="box-border border-2 w-full mt-2.5 pl-6 h-14 text-sm focus:text-black text-gray-400 rounded-lg" name="alamat" placeholder="Alamat" value="<?= $d['alamat']?>"></input>
        </div>
 
        
@@ -133,37 +91,34 @@ $d = mysqli_fetch_object($ambil_data);
        </div>
 
        <div class="flex pr-10 pl-8">
-            <div class="box-border border-2 w-3.5 h-4 rounded border-primary mt-4"></div>
+            <input type="checkbox" value="yes" name="check" class="box-border border-2 w-3.5 h-4 rounded border-yellow-400 mt-4" />
             <span class="text-sm ml-1 mt-3">Data yang saya isikan sudah benar</span>
        </div>
 
-       <!-- <a href="detailpemesanan3.html"> -->
-        <button type="submit" name="tambah" class="border-2 w-72 h-10 ml-8 mt-12 rounded-lg bg-primary mb-10 text-center">
+        <form method="POST">
+            <button type="submit" name="tambah" class="border-2 w-72 h-10 ml-8 mt-12 rounded-lg bg-primary mb-10 text-center">
             <div class="pt-1">Pesan</div>
         </button>
-       <!-- </a> -->
+        </form>
+
    </div> 
 </body>
 </html>
 
 <?php
 
-if(isset($_POST['tambah'])){
-    $id_pemesanan = $_POST[$i];
-    $jenis_layanan = $_POST['jenis_layanan'];
-    $jadwal_service = $_POST['jadwal_service'];
+if(isset($_POST['tambah']) && isset($_POST['check'])){
+    $data = array(
+        'id_pemesanan' => $_GET['id_pemesanan'],
+        'jenis_layanan' => $_POST['jenis_layanan'],
+        'jadwal_service' => $_POST['jadwal_service']
+    );
 
-    $tambah = mysqli_query($conn, "insert into booking_service set
-    id_pemesanan = '".$id_pemesanan."',
-    jenis_layanan = '".$jenis_layanan."',
-    jadwal_service = '".$jadwal_service."'
-     where id_user = '".$d->id_user."'");
-     $i++;
-    
-     if($tambah){
-         echo'<script>window.location="detailpemesanan3.html"</script>';
+    $kirim = insertData("booking_service", $data);
+     if($kirim['status']){
+         echo'<script>window.location="detailpemesanan3.php?id_pemesanan='.$kirim['last_id'].'"</script>';
      }else{
-         echo 'gagal'.mysqli_error($conn);
+         echo 'gagal'. $kirim['eror'];
      }
 
 }

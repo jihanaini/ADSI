@@ -1,6 +1,8 @@
 <?php
 include "model.php";
-$f = getData($tabel = "faq");
+$check = checkLogin();
+if(!$check) header("location:login.php");
+$f = getDataWhere("faq", "id_faq", 1);
 ?>
 
 <!DOCTYPE html>
@@ -51,9 +53,9 @@ $f = getData($tabel = "faq");
 			<br>
 			<div class="ml-10">
 				<details open>
-					<summary class="w-380 text-md font-bold pl-3 mb-2 text-left relative cursor-pointer" ><?php $f['question']?></summary>
+					<summary class="w-380 text-md font-bold pl-3 mb-2 text-left relative cursor-pointer" ><? $f['question']?></summary>
 					<div class="faq_content">
-						<p class="pl-3 pr-2"><?php $f['answer']?></p>
+						<p class="pl-3 pr-2"><? $f['answer']?></p>
 					</div>
 				</details>
 				<details open>

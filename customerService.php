@@ -27,7 +27,7 @@ $user = getDataLogin();
 				<img src="aset/phone.png" className="p-2">
 			</div>
 			<div class="flex">
-				<img src="aset/ic_round-chevron-left.png">
+				<a href="home.php"><<img src="aset/ic_round-chevron-left.png"></a>
 				<span class="px-20 font-bold text-lg">Customer Service</span>
 			</div>
 		</div>
