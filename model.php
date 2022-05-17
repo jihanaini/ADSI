@@ -44,6 +44,33 @@ function insertData($tabel = "", $data = [])
     }
 }
 
+//mengubah data di tabel, $tabel adalah nama tabel $data adalah array data yang ingin diubah, $id adalah id data yang ingin diubah
+//ex :
+//$data = array(
+//    "nama_produk" => "Baju",
+//    "harga_produk" => "10000",
+//)
+//updateData("produk", $data, 1);
+//berarti dia mengubah data di tabel produk dengan isi dari array $data dan id_produk = 1
+function updateData($tabel = "", $data = [], $id=null){
+    global $conn;
+    $columns = array_keys($data);
+    $values  = array_values($data);
+    $set = "";
+    for($i=0; $i<count($columns); $i++){
+        $set .= $columns[$i]."='".$values[$i]."'";
+        if($i<count($columns)-1){
+            $set .= ", ";
+        }
+    }
+    $row = mysqli_query($conn, "UPDATE $tabel SET $set WHERE id_".$tabel." = $id");
+    if($row) {
+        return array('status' => true);
+    } else {
+        return array('status' => false, 'error' => mysqli_error($conn));
+    }
+}
+
 //menghapus data di tabel, $tabel adalah nama tabel, $column adalah nama kolom kondisi, $value adalah isi kondisi
 //ex : deleteData("produk", "id_produk", "1");
 //berarti dia ngehapus data dari tabel produk yang punya id_produk = 1
@@ -92,11 +119,12 @@ function getDataLogin(){
     return $_SESSION["login"];
 }
 
-// function getDataJoin($tabel1 = "", $tabel2 = "", $tabel3 = "", $column = "", $id = null)
-// {
-//     global $conn;
-//     $row = mysqli_query($conn, "select * from $tabel1 inner join $table2  
-//     on $table1.$id = $table2.$id join $table2 on $table2.$id = $table3.$id ");
-//     $rows = mysqli_fetch_assoc($row);
-//     return $rows;
-// }
+//buat ngambil data join
+function getDataJoin($tabel1 = "", $tabel2 = "", $tabel3 = "", $column = "", $id = null)
+{
+    global $conn;
+    $row = mysqli_query($conn, "select * from $tabel1 inner join $tabel2  
+    on $tabel1.$id = $tabel2.$id join $tabel3 on $tabel2.$id = $tabel3.$id ");
+    $rows = mysqli_fetch_assoc($row);
+    return $rows;
+}
