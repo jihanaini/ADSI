@@ -55,6 +55,10 @@ include "model.php";
                 <!-- <a href=""><img src="aset/Eyes.png" alt="" class="place-content-end"></a> -->
                 </div>
                 
+                <div class="flex justify-center">
+       <a href ="login.php"><button type="submit" class="border-2 font-bold bg-yellow-400 w-60 h-10 mt-8 mb-8 rounded-lg bg-amber-400">Lanjutkan</button></a>
+       </div>
+
         <div class="flex ml-4 my-2 text-sm text-gray-600">
         <div class="form-check">
             <input class="form-check-input appearance-none h-4 w-4 border-2 border-primary rounded-sm bg-white cursor-pointer mr-2 mt-0.5" type="checkbox" value="" id="flexCheckDefault">

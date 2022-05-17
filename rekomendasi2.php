@@ -15,7 +15,7 @@
     <div class="box-border border-2 w-96 p-2 font-poppins">
         <img src="aset/Black.png" className="p-0">
         <div class="flex">
-         <img src="aset/ic_round-chevron-left.png">
+        <a href="rekomendasi.php"><img src="aset/ic_round-chevron-left.png"></a>
          <span class="text-justify px-18 font-bold text-md ml-5 mt-1">Rekomendasi Jadwal Servis</span>
         </div>
         <br>
