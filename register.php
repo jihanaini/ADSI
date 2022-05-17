@@ -77,7 +77,7 @@ if (isset($_POST['submit']) && isset($_POST['check'])) {
     );
     $kirim = insertData("user", $data);
     if ($kirim['status']) {
-        echo '<script>window.location="login.php?id_user='.$kirim['last_id'].'"</script>';
+        echo '<script>window.location="login.php"</script>';
     } else {
         echo 'gagal' . $kirim['error'];
     }
