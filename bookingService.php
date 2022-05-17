@@ -5,30 +5,11 @@
 // }
 include "db.php";
 $i=1;
-// $i=1;
-// if(isset($_POST['tambah'])){
-//     mysqli_query($db, "insert into booking_service set
-//     id_pemesanan = '$_POST[$i]',
-//     jenis_layanan = '$_POST[jenis_layanan]',
-//     jadwal_service = '$_POST[jadwal_service]'
-//     ");
-//     $i++;
-// }
 
 $ambil_data = mysqli_query($conn, "select * from user where id_user='".$i."'");
-// while ($tampil=mysqli_fetch_object($ambil_data)){
-//     mysqli_query($db, "insert into booking service set
-//     id_user = '".$tampil."'");
-// }
 $d = mysqli_fetch_object($ambil_data);
 
-// $data_set = mysqli_query($db, "select nama_user, jenis_kendaraan, alamat from user");
-// while ($tampil=mysqli_fetch_array($data_set)){
-//     echo"
-//     $tampil[nama]
-//     $tampil[jenis_kendaraan]
-//     $tampil[alamat]";
-// }
+
 ?>
 
 
@@ -184,11 +165,6 @@ if(isset($_POST['tambah'])){
      }else{
          echo 'gagal'.mysqli_error($conn);
      }
-    // mysqli_query($db, "insert into booking_service set
-    // id_pemesanan = '$_POST[$i]',
-    // jenis_layanan = '$_POST[jenis_layanan]',
-    // jadwal_service = '$_POST[jadwal_service]'
-    // ");
 
 }
 ?>

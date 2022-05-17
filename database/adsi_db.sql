@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2022 at 09:54 AM
+-- Generation Time: May 16, 2022 at 04:32 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -151,15 +151,17 @@ CREATE TABLE `pembelian_produk` (
   `id_pembelian` int(50) NOT NULL,
   `jumlah_pembelian` int(50) NOT NULL,
   `id_user` int(50) NOT NULL,
-  `id_produk` int(50) NOT NULL
+  `id_produk` int(50) NOT NULL,
+  `nama_penerima` varchar(50) NOT NULL,
+  `alamat_pengiriman` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pembelian_produk`
 --
 
-INSERT INTO `pembelian_produk` (`id_pembelian`, `jumlah_pembelian`, `id_user`, `id_produk`) VALUES
-(1, 1, 1, 1);
+INSERT INTO `pembelian_produk` (`id_pembelian`, `jumlah_pembelian`, `id_user`, `id_produk`, `nama_penerima`, `alamat_pengiriman`) VALUES
+(1, 1, 1, 1, '', '');
 
 -- --------------------------------------------------------
 
@@ -398,7 +400,7 @@ ALTER TABLE `riwayat`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

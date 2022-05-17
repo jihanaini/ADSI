@@ -1,8 +1,6 @@
 <?php 
-include "db.php"; 
-// $id_pembelian = $_GET['id_pembelian']; 
-$data = mysqli_query($conn, "select * from produk p inner join pembelian_produk pp on p.id_produk = pp.id_produk inner join user u on pp.id_user = u.id_user");
-$d = mysqli_fetch_all($data, MYSQLI_ASSOC )
+include "model.php"; 
+$data = getData("produk", "pembelian_produk","user","id_produk")
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +36,7 @@ $d = mysqli_fetch_all($data, MYSQLI_ASSOC )
 
         <div class="box-border bg-white mt-0.5 px-6 pt-4 pb-5">
             <div class="flex gap-x-4">
-                <img src="./aset/<?= $d->gambar_produk ?>" alt="" class="h-16">
+                <img src="./aset/<?= $data->gambar_produk ?>" alt="" class="h-16">
 
                 <div>
                     <p class="text-sm font-semibold">Velg ban mobil Toyota Avanza/Gold</p>
