@@ -1,3 +1,10 @@
+<?php
+include "model.php";
+$check = checkLogin();
+if(!$check) header("location:login.php");
+$user = getDataLogin();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +27,7 @@
 				<img src="aset/phone.png" className="p-2">
 			</div>
 			<div class="flex">
-				<img src="aset/ic_round-chevron-left.png">
+				<a href="home.php"><<img src="aset/ic_round-chevron-left.png"></a>
 				<span class="px-20 font-bold text-lg">Customer Service</span>
 			</div>
 		</div>
@@ -64,10 +71,10 @@
 		</div>
 	</div>
 	<div class="relative flex justify-between w-96 bg-primary py-2 px-6 bottom-0 sticky">
-		<button><img src="./aset/home.png" class="w-10 opacity-50"></button>
-		<button><img src="./aset/katalog-black.png" class="w-8"></button>
-		<button><img src="./aset/riwayat-black.png" class="w-6 opacity-50"></button>
-		<button><img src="./aset/profil-black.png" class="w-10 opacity-50"></button>
+			<a href="home.php"><button><img src="./aset/home.png" class="w-10 opacity-50"></button></a>
+			<a href="product.php"><button><img src="./aset/katalog-black.png" class="w-8"></button></a>
+			<a href="riwayat.html"><button><img src="./aset/riwayat-black.png" class="w-6 opacity-50"></button></a>
+			<a href="profil.html"><button><img src="./aset/profil-black.png" class="w-10 opacity-50"></button></a>
 	</div>
 </body>
 

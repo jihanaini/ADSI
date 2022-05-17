@@ -56,7 +56,7 @@
         $password = $_POST['password'];
         $login = login($email, $password);
         if($login){
-            header('location: home.html');
+            header('location: home.php');
         }else{
             echo "<script>alert('Email atau password salah')</script>";
         }

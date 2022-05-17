@@ -1,3 +1,10 @@
+<?php
+include "model.php";
+$check = checkLogin();
+if(!$check) header("location:login.php");
+$f = getDataWhere("faq", "id_faq", 1);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,11 +53,9 @@
 			<br>
 			<div class="ml-10">
 				<details open>
-					<summary class="w-380 text-md font-bold pl-3 mb-2 text-left relative cursor-pointer" >Bagaimana cara registrasi?</summary>
+					<summary class="w-380 text-md font-bold pl-3 mb-2 text-left relative cursor-pointer" ><? $f['question']?></summary>
 					<div class="faq_content">
-						<p class="pl-3 pr-2">1. Klik tombol registrasi yang ada di home<br>
-						   2. Lengkapi formulir yang ada dengan data diri anda<br>
-						   3. Registrasi berhasil .</p>
+						<p class="pl-3 pr-2"><? $f['answer']?></p>
 					</div>
 				</details>
 				<details open>
@@ -68,10 +73,10 @@
 				
 			</div>
 			<div class="relative flex justify-between w-96 bg-primary py-2 px-6 bottom-0 sticky">
-				<button><img src="./aset/home.png" class="w-10 opacity-50"></button>
-				<button><img src="./aset/katalog-black.png" class="w-8"></button>
-				<button><img src="./aset/riwayat-black.png" class="w-6 opacity-50"></button>
-				<button><img src="./aset/profil-black.png" class="w-10 opacity-50"></button>
+			<a href="home.php"><button><img src="./aset/home.png" class="w-10 opacity-50"></button></a>
+			<a href="product.php"><button><img src="./aset/katalog-black.png" class="w-8"></button></a>
+			<a href="riwayat.html"><button><img src="./aset/riwayat-black.png" class="w-6 opacity-50"></button></a>
+			<a href="profil.html"><button><img src="./aset/profil-black.png" class="w-10 opacity-50"></button></a>
 			</div>
 		</div>
 	</div>
