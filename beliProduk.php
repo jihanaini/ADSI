@@ -2,7 +2,7 @@
 // session_start();
 // if($_SESSION['status_login'] != true){
 //     echo'<script>window.location="login.php"</script>';
-// }
+// 
 include "db.php";
 $id_produk = $_GET['id_produk'];
 $ambil_data = mysqli_query($conn, "select * from produk p where id_produk = $id_produk");
