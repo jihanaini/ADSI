@@ -1,6 +1,7 @@
 <?php 
 include "model.php"; 
-$data = getData("produk", "pembelian_produk","user","id_produk")
+$id_pembelian = 1; 
+$data = getDataJoin("produk", "pembelian_produk","user","id_produk", 1)
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +37,7 @@ $data = getData("produk", "pembelian_produk","user","id_produk")
 
         <div class="box-border bg-white mt-0.5 px-6 pt-4 pb-5">
             <div class="flex gap-x-4">
-                <img src="./aset/<?= $data->gambar_produk ?>" alt="" class="h-16">
+                <img src="./aset/<?= $data[0]->gambar_produk ?>" alt="" class="h-16">
 
                 <div>
                     <p class="text-sm font-semibold">Velg ban mobil Toyota Avanza/Gold</p>
