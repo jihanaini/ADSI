@@ -1,3 +1,7 @@
+<?php
+include "model.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,12 +54,8 @@
                 </input>
                 <!-- <a href=""><img src="aset/Eyes.png" alt="" class="place-content-end"></a> -->
                 </div>
-       </div>
-       <div class="flex justify-center">
-       <button type="submit" class="border-2 font-bold bg-yellow-400 w-60 h-10 mt-12 rounded-lg bg-amber-400 mb-40">Lanjutkan</button>
-       </div>
-
-       <div class="flex ml-4 my-2 text-sm text-gray-600">
+                
+        <div class="flex ml-4 my-2 text-sm text-gray-600">
         <div class="form-check">
             <input class="form-check-input appearance-none h-4 w-4 border-2 border-primary rounded-sm bg-white cursor-pointer mr-2 mt-0.5" type="checkbox" value="" id="flexCheckDefault">
         </div>
@@ -66,3 +66,20 @@
     </div> 
 </body>
 </html>
+
+<?php
+if (isset($_POST['submit']) && isset($_POST['check'])) {
+    $data = array(
+        'username' => $_POST['username'],
+        'email' => $_POST['email'],
+        'password' => $_POST['password'],
+        'confirm_password' => $_POST['password']
+    );
+    $kirim = insertData("user", $data);
+    if ($kirim['status']) {
+        echo '<script>window.location="login.php?id_user='.$kirim['last_id'].'"</script>';
+    } else {
+        echo 'gagal' . $kirim['error'];
+    }
+}
+?>
